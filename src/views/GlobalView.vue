@@ -1,16 +1,19 @@
-<!-- <template>
-    <header :heading="bNews"></header>
+<template>
+    <headed :heading="globalN"></headed>
+
+    <cards :carder="globalNewsSlice"></cards>
 </template>
 
 <script>
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
-import header from '@/components/Headline.vue'
+import headed from '@/components/Headline.vue'
+import cards from '@/components/Cards.vue'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
     name: 'GlobalView',
-    components: { header },
+    components: { headed, cards },
     // components: {
     //   HelloWorld
     // }
@@ -21,8 +24,11 @@ export default {
         ...mapGetters({
             globalNews: "getGlobalNews"
         }),
-        bNews() {
-            return this.globalNews[0]
+        globalNewsSlice() {
+            return this.globalNews.slice(1, 10)
+        },
+        globalN() {
+            return this.globalNews.slice(0, 1)
         }
     },
     methods: {
@@ -31,4 +37,6 @@ export default {
         })
     }
 }
-</script> -->
+</script>
+<style scoped>
+</style>
