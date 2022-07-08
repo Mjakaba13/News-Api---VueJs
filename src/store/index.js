@@ -4,16 +4,10 @@ import axios from "axios";
 const store = createStore({
   state: {
     globalNews: [],
-    // techNews: [],
-    // businessNews: [],
-    // healthNews: [],
     categoryNews: [],
   },
   getters: {
     getGlobalNews: (state) => state.globalNews,
-    // getTechNews: (state) => state.techNews,
-    // getBusinessNews: (state) => state.techNews,
-    // getHealthNews: (state) => state.techNews,
     getCategoryNews: (state) => state.categoryNews,
   },
   mutations: {
