@@ -20,15 +20,6 @@ const store = createStore({
     SET_GLOBALNEWS(state, payload) {
       state.globalNews = payload;
     },
-    // SET_TECHNEWS(state, payload) {
-    //   state.techNews = payload;
-    // },
-    // SET_BUSINESSNEWS(state, payload) {
-    // state.techNews = payload;
-    // },
-    // SET_HEALTHNEWS(state, payload) {
-    // state.techNews = payload;
-    // },
     SET_CATEGORYNEWS(state, payload) {
       state.categoryNews = payload;
     },
