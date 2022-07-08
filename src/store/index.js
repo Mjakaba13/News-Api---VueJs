@@ -37,7 +37,7 @@ const store = createStore({
     async getAllGlobalNews({ commit }) {
       try {
         const response = await axios.get(
-          "https://newsapi.org/v2/everything?q=global&from=2022-07-06&apiKey=3b5e2958339f4772947fd7a642e24172"
+          "https://newsapi.org/v2/everything?q=global&apiKey=3b5e2958339f4772947fd7a642e24172"
         );
         commit("SET_GLOBALNEWS", response.data.articles);
         console.log(response.data);
@@ -48,42 +48,6 @@ const store = createStore({
         console.log(error);
       }
     },
-    // async getAllTechNews({ commit }) {
-    //   try {
-    //     const response = await axios.get(
-    //       "https://newsapi.org/v2/top-headlines?category=technology&apiKey=3b5e2958339f4772947fd7a642e24172"
-    //     );
-    //     commit("SET_TECHNEWS", response.data.articles);
-    //     console.log(response);
-    //     return response;
-    //   } catch (error) {
-    //     consol.log(error);
-    //   }
-    // },
-    // async getAllBusinessNews({ commit }) {
-    //   try {
-    //     const response = await axios.get(
-    //       "https://newsapi.org/v2/top-headlines?category=business&apiKey=3b5e2958339f4772947fd7a642e24172"
-    //     );
-    //     commit("SET_BUSINESSNEWS", response.data.articles);
-    //     console.log(response);
-    //     return response;
-    //   } catch (error) {
-    //     consol.log(error);
-    //   }
-    // },
-    // async getAllHealthNews({ commit }) {
-    //   try {
-    //     const response = await axios.get(
-    //       "https://newsapi.org/v2/top-headlines?category=health&apiKey=3b5e2958339f4772947fd7a642e24172"
-    //     );
-    //     commit("SET_HEALTHNEWS", response.data.articles);
-    //     console.log(response);
-    //     return response;
-    //   } catch (error) {
-    //     consol.log(error);
-    //   }
-    // },
     async getAllCategoryNews({ commit }, category) {
       try {
         const response = await axios.get(

@@ -4,8 +4,8 @@
         <div class="text">
             <a :href="head.url" target="_blank">
                 <h1>{{ head.title }}</h1>
-                <p class="date">{{ head.publishedAt.slice(0, 10) }} . <span> 7 mins. read</span></p>
-                <p class="author">{{ head.author }}</p>
+                <p class="date">{{ longDate(head.publishedAt) }} . <span> 7 mins. read</span></p>
+                <p class="author">Author: {{ head.author }}</p>
             </a>
         </div>
 
@@ -15,6 +15,17 @@
 export default {
     name: "HeadlineNav",
     props: ["heading"],
+    computed: {
+        longDate() {
+            return (newDate) => {
+                let date = new Date(newDate);
+                const month = date.toLocaleString('default', { month: 'long' });
+                const day = date.toLocaleString('default', { weekday: 'long' });
+                // (date.getMonth()+1)
+                return month + ' ' + date.getDate() + ', ' + date.getFullYear();
+            }
+        }
+    }
 };
 </script>
 <style scoped>
@@ -75,7 +86,7 @@ p {
     height: 400px;
     width: 966px;
     position: absolute;
-    top: 128px;
+    top: 148px;
     left: 200px;
     border-radius: 8px;
 

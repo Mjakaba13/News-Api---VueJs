@@ -9,7 +9,7 @@
                 </div>
                 <div class="egg">
                     <p id="title">{{ con.title }}</p>
-                    <p id="time">{{ con.publishedAt.slice(0, 10) }}. <span> 7 mins read.</span> </p>
+                    <p id="time">{{ longDate(con.publishedAt) }}. <span> 7 mins read.</span> </p>
                     <p class="author">Author: {{ con.author }}</p>
                 </div>
             </a>
@@ -22,7 +22,18 @@
 <script>
 export default {
     name: 'Cards',
-    props: ['carder']
+    props: ['carder'],
+    computed: {
+        longDate() {
+            return (newDate) => {
+                let date = new Date(newDate);
+                const month = date.toLocaleString('default', { month: 'long' });
+                const day = date.toLocaleString('default', { weekday: 'long' });
+                // (date.getMonth()+1)
+                return month + ' ' + date.getDate() + ', ' + date.getFullYear();
+            }
+        }
+    }
 }
 </script>
 
